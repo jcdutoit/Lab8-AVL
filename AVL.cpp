@@ -126,8 +126,11 @@ void AVL::replaceParent(Node* &oldRoot, Node* &localRoot){
 	}
 	else {
 		oldRoot->data = localRoot->data;
-		oldRoot = localRoot;
-		localRoot = localRoot->leftChild;
+		doRemove(oldRoot->leftChild, oldRoot->data);
+        
+        
+        // oldRoot = localRoot;
+		// localRoot = localRoot->leftChild;
 	}
 }
 
@@ -164,6 +167,7 @@ bool AVL::doRemove(Node* &localRoot, int value){
 
             else {
                 replaceParent(oldRoot, oldRoot->leftChild);
+                return true;
             }
             delete oldRoot;
 			oldRoot = nullptr;
