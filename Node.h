@@ -5,7 +5,7 @@ using namespace std;
 class Node : public NodeInterface{
 	friend class AVL;
 public:
-	Node(int value) {data = value; leftChild = nullptr; rightChild = nullptr; height = 1;}
+	Node(int value) {data = value; parent = nullptr; leftChild = nullptr; rightChild = nullptr; height = 1;}
 	~Node() {}
 	int getData() const;
 	int getHeight();
@@ -16,6 +16,7 @@ public:
 	void setRight(Node *ptr);
 protected:
 	int height;
+	Node* parent;
 	Node* leftChild;
 	Node* rightChild;
 	int data;

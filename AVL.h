@@ -13,13 +13,14 @@ public:
 protected:
 	Node *root;
 private:
-	bool doAdd(Node* &localRoot, int data);
+	bool doAdd(Node* parentNode, Node* &localRoot, int data);
 	void replaceParent(Node* &localRoot, Node* &oldRoot);
 	bool doRemove(Node* &localRoot, int data);
 	void doClear(Node* &localRoot);
-    void rotateRight(Node* &localRoot);
-    void rotateLeft(Node* &localRoot);
+    Node* rotateRight(Node* &localRoot);
+    Node* rotateLeft(Node* &localRoot);
     void rebalance(Node* &localNode);
 	int getBalance(Node* &localNode);
     int getMax(Node* &localNode);
+	void removeRebalance(Node* &localNode);
 };
