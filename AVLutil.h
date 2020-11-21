@@ -10,4 +10,5 @@ int getBalance(const Node* localNode);
 void checkBalance(const Node* localNode);
 void doClear(Node* localRoot);
 Node * doAdd(Node* localRoot, int value);
+Node* doRemove(Node* localRoot, int value);
 string treeString(NodeInterface* node);

@@ -13,7 +13,8 @@ int main(){
         cout << treeString(avlTree.getRootNode()) << endl;
     }
     //cout << treeString(avlTree.getRootNode()) << endl;
-    // avlTree.remove(9);
+    avlTree.remove(2);
+    cout << treeString(avlTree.getRootNode()) << endl;
     // avlTree.remove(11);
     // avlTree.remove(13);
     // avlTree.remove(15);

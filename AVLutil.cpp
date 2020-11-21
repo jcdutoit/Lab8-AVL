@@ -138,8 +138,53 @@ Node * doAdd(Node* localRoot, int value){
     else{
         return localRoot;
     }
-
     localRoot->height = 1 + std::max(GetHeight(localRoot->leftChild), GetHeight(localRoot->rightChild));
+    return localRoot;
+}
+
+Node * minValueNode(Node* node) {  
+    Node* current = node;  
+    while (current->leftChild != nullptr)  
+        current = current->leftChild;  
+    return current;  
+} 
+
+Node* doRemove(Node* localRoot, int value){
+    if(localRoot == nullptr){
+        return localRoot;
+    }
+    if(value < localRoot->getData()){
+        return doRemove(localRoot->leftChild, value);
+    }
+    else if(value > localRoot->getData()){
+        return doRemove(localRoot->rightChild, value);
+    }
+    else {
+        if(localRoot->leftChild == nullptr || localRoot->rightChild == nullptr) {
+            Node *temp = (localRoot->leftChild == nullptr) ?  
+                         localRoot->leftChild :  
+                         localRoot->rightChild;   
+            if (temp == nullptr) {  
+                temp = localRoot;  
+                localRoot = nullptr;  
+            }  
+            else {  
+                *localRoot = *temp; 
+            }
+            free(temp); 
+        }
+        else {
+            Node* temp = minValueNode(localRoot->rightChild);
+            localRoot->data = temp->data;   
+            localRoot->rightChild = doRemove(localRoot->rightChild,  
+                                     temp->data); 
+        }
+    }
+    if (localRoot == NULL)  
+    return localRoot;  
+  
+    localRoot->height = 1 + std::max(GetHeight(localRoot->leftChild),  
+                           GetHeight(localRoot->rightChild));  
 
     return localRoot;
 }
