@@ -20,12 +20,9 @@ void AVL::clear(){
     doClear(root);
 }
 
-
-
 bool AVL::doAdd(Node* localRoot, int value){
     if(localRoot == nullptr){
-        Node* newNode = new Node(value);
-        localRoot = newNode;
+        localRoot = new Node(value);
         if(root == nullptr){
             root = localRoot;
         }
@@ -35,7 +32,7 @@ bool AVL::doAdd(Node* localRoot, int value){
         bool isAdded = doAdd(localRoot->getLeftChild(), value);
         if(isAdded){
             localRoot->height = getMaxHeight(localRoot);   
-            rebalance(localRoot);
+            //rebalance(localRoot);
         }
         return isAdded;
     }
@@ -43,7 +40,7 @@ bool AVL::doAdd(Node* localRoot, int value){
         bool isAdded = doAdd(localRoot->getRightChild(), value);
         if(isAdded){
             localRoot->height = getMaxHeight(localRoot);
-            rebalance(localRoot);
+            //rebalance(localRoot);
         }
         return isAdded;
     }
