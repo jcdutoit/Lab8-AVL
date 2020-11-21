@@ -27,3 +27,7 @@ void Node::setRight(Node *ptr){
 int Node::getHeight(){
 	return height;
 }
+
+void Node::setHeight(int newHeight){
+	height = newHeight;
+}

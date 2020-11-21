@@ -6,21 +6,14 @@ class AVL : public AVLInterface {
 public:
 	AVL() { root = nullptr;}
 	virtual ~AVL() {clear();}
-	NodeInterface * getRootNode() const;
-	bool add(int data);
-	bool remove(int data);
-	void clear();
-protected:
+	NodeInterface* getRootNode() const override;
+	bool add(int data) override;
+	bool remove(int data) override;
+	void clear() override;
+	//Protected
 	Node *root;
-private:
-	bool doAdd(Node* parentNode, Node* &localRoot, int data);
-	void replaceParent(Node* &localRoot, Node* &oldRoot);
-	bool doRemove(Node* &localRoot, int data);
-	void doClear(Node* &localRoot);
-    Node* rotateRight(Node* &localRoot);
-    Node* rotateLeft(Node* &localRoot);
-    void rebalance(Node* &localNode);
-	int getBalance(Node* &localNode);
-    int getMax(Node* &localNode);
-	void removeRebalance(Node* &localNode);
+	//Private
+	bool doAdd(Node* localRoot, int data);
+	void replaceParent(Node* localRoot, Node* oldRoot);
+	bool doRemove(Node* localRoot, int data);
 };
