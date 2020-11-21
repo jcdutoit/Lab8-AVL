@@ -3,13 +3,22 @@
 #include <queue>
 #include <sstream>
 
+int GetHeight(const Node* localNode) {
+    if(localNode==nullptr) {
+        return 0;
+    }
+    return localNode->getHeight();
+}
+
 int getMaxHeight(const Node* localNode){
     if(localNode == nullptr){
-        cout << "TRYING TO TAKE BALANCE OF NULL PTR" << endl;
+        cout << "TRYING TO TAKE HEIGHT OF NULL PTR" << endl;
+        return 0;
     }
-    int leftHeight = (localNode->getLeftChild() == nullptr)? 0:localNode->getLeftChild()->getHeight();
-    int rightHeight = (localNode->getRightChild()== nullptr)? 0:localNode->getRightChild()->getHeight();
-    return (leftHeight > rightHeight)? leftHeight + 1:rightHeight + 1;
+    return localNode->getHeight();
+    // int leftHeight = (localNode->getLeftChild() == nullptr)? 0:localNode->getLeftChild()->getHeight();
+    // int rightHeight = (localNode->getRightChild()== nullptr)? 0:localNode->getRightChild()->getHeight();
+    // return (leftHeight > rightHeight)? leftHeight + 1:rightHeight + 1;
 }
 
 int getBalance(const Node* localNode){

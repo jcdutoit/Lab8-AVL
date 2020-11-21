@@ -1,6 +1,7 @@
 #include "Node.h"
 #include <string>
 
+int GetHeight(const Node* localNode);
 int getMaxHeight(const Node* localNode);
 void rebalance(Node* localNode);
 Node* rotateRight(Node* localRoot);

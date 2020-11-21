@@ -24,7 +24,7 @@ void Node::setRight(Node *ptr){
 	rightChild = ptr;
 }
 
-int Node::getHeight(){
+int Node::getHeight() const {
 	return height;
 }
 

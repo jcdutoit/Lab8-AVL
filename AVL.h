@@ -13,7 +13,7 @@ public:
 	//Protected
 	Node *root;
 	//Private
-	bool doAdd(Node* localRoot, int data);
+	Node * doAdd(Node* localRoot, int data);
 	void replaceParent(Node* localRoot, Node* oldRoot);
 	bool doRemove(Node* localRoot, int data);
 };

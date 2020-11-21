@@ -3,13 +3,15 @@
 #include "Node.h"
 #include "AVLutil.h"
 #include <iostream>
+#include <algorithm>
 
 NodeInterface* AVL::getRootNode() const{
     return root;
 }
 
 bool AVL::add(int data){
-    return doAdd(root, data);
+    root = doAdd(root, data);
+    return true;
 }
 
 bool AVL::remove(int data){
@@ -20,33 +22,25 @@ void AVL::clear(){
     doClear(root);
 }
 
-bool AVL::doAdd(Node* localRoot, int value){
+
+Node * AVL::doAdd(Node* localRoot, int value){
     if(localRoot == nullptr){
-        localRoot = new Node(value);
-        if(root == nullptr){
-            root = localRoot;
-        }
-        return true;
+        return new Node(value);
     }
     else if(value < localRoot->data){
-        bool isAdded = doAdd(localRoot->getLeftChild(), value);
-        if(isAdded){
-            localRoot->height = getMaxHeight(localRoot);   
-            //rebalance(localRoot);
-        }
-        return isAdded;
+        localRoot->leftChild = doAdd(localRoot->leftChild, value);
     }
     else if(localRoot->data < value){
-        bool isAdded = doAdd(localRoot->getRightChild(), value);
-        if(isAdded){
-            localRoot->height = getMaxHeight(localRoot);
-            //rebalance(localRoot);
-        }
-        return isAdded;
+        localRoot->rightChild = doAdd(localRoot->rightChild, value);
     }
     else{
-        return false;
+        return localRoot;
     }
+
+    localRoot->height = 1 + std::max(GetHeight(localRoot->leftChild), GetHeight(localRoot->rightChild));
+
+
+    return localRoot;
 }
 
 void AVL::replaceParent(Node* oldRoot, Node* localRoot){

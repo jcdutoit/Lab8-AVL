@@ -8,7 +8,7 @@
 
 int main(){
     AVL avlTree;
-    for(int i=1; i<3; ++i){
+    for(int i=1; i<4; ++i){
         avlTree.add(i);
         cout << treeString(avlTree.getRootNode()) << endl;
     }
