@@ -23,25 +23,7 @@ void AVL::clear(){
 }
 
 
-Node * AVL::doAdd(Node* localRoot, int value){
-    if(localRoot == nullptr){
-        return new Node(value);
-    }
-    else if(value < localRoot->data){
-        localRoot->leftChild = doAdd(localRoot->leftChild, value);
-    }
-    else if(localRoot->data < value){
-        localRoot->rightChild = doAdd(localRoot->rightChild, value);
-    }
-    else{
-        return localRoot;
-    }
 
-    localRoot->height = 1 + std::max(GetHeight(localRoot->leftChild), GetHeight(localRoot->rightChild));
-
-
-    return localRoot;
-}
 
 void AVL::replaceParent(Node* oldRoot, Node* localRoot){
 	if(localRoot->rightChild != nullptr){

@@ -15,7 +15,6 @@ public:
 	void setLeft(Node *ptr);
 	void setRight(Node *ptr);
 	void setHeight(int height);
-protected:
 	int height;
 	Node* leftChild;
 	Node* rightChild;

@@ -125,6 +125,25 @@ void checkBalance(const Node* localNode){
     }
 }
 
+Node * doAdd(Node* localRoot, int value){
+    if(localRoot == nullptr){
+        return new Node(value);
+    }
+    else if(value < localRoot->data){
+        localRoot->leftChild = doAdd(localRoot->leftChild, value);
+    }
+    else if(localRoot->data < value){
+        localRoot->rightChild = doAdd(localRoot->rightChild, value);
+    }
+    else{
+        return localRoot;
+    }
+
+    localRoot->height = 1 + std::max(GetHeight(localRoot->leftChild), GetHeight(localRoot->rightChild));
+
+    return localRoot;
+}
+
 string treeString(NodeInterface* node) {
     //cout << "Printing tree: " << endl;
     queue<NodeInterface*> readQ; // used to read in the levels of the tree, contains Node*
