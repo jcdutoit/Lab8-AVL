@@ -10,8 +10,7 @@ public:
 	bool add(int data) override;
 	bool remove(int data) override;
 	void clear() override;
-	//Protected
+protected:
 	Node *root;
-	//Private
-	// void replaceParent(Node* localRoot, Node* oldRoot);
+
 };

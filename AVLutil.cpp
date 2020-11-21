@@ -16,9 +16,6 @@ int getMaxHeight(const Node* localNode){
         return 0;
     }
     return localNode->getHeight();
-    // int leftHeight = (localNode->getLeftChild() == nullptr)? 0:localNode->getLeftChild()->getHeight();
-    // int rightHeight = (localNode->getRightChild()== nullptr)? 0:localNode->getRightChild()->getHeight();
-    // return (leftHeight > rightHeight)? leftHeight + 1:rightHeight + 1;
 }
 
 int getBalance(const Node* localNode){
