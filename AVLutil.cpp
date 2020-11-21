@@ -153,11 +153,11 @@ Node* doRemove(Node* localRoot, int value){
     if(localRoot == nullptr){
         return localRoot;
     }
-    if(value < localRoot->getData()){
-        return doRemove(localRoot->leftChild, value);
+    if(value < localRoot->data){
+        localRoot->leftChild = doRemove(localRoot->leftChild, value);
     }
-    else if(value > localRoot->getData()){
-        return doRemove(localRoot->rightChild, value);
+    else if(value > localRoot->data){
+        localRoot->rightChild = doRemove(localRoot->rightChild, value);
     }
     else {
         if(localRoot->leftChild == nullptr || localRoot->rightChild == nullptr) {
@@ -180,8 +180,9 @@ Node* doRemove(Node* localRoot, int value){
                                      temp->data); 
         }
     }
-    if (localRoot == NULL)  
-    return localRoot;  
+    if (localRoot == NULL) { 
+        return localRoot;  
+    }
   
     localRoot->height = 1 + std::max(GetHeight(localRoot->leftChild),  
                            GetHeight(localRoot->rightChild));  
