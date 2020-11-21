@@ -161,9 +161,9 @@ Node* doRemove(Node* localRoot, int value){
     }
     else {
         if(localRoot->leftChild == nullptr || localRoot->rightChild == nullptr) {
-            Node *temp = (localRoot->leftChild == nullptr) ?  
-                         localRoot->leftChild :  
-                         localRoot->rightChild;   
+            Node *temp = (localRoot->leftChild == nullptr) ?
+                         localRoot->rightChild :  
+                         localRoot->leftChild; 
             if (temp == nullptr) {  
                 temp = localRoot;  
                 localRoot = nullptr;  
