@@ -10,11 +10,18 @@ NodeInterface* AVL::getRootNode() const{
 }
 
 bool AVL::add(int data){
+    if(checkValue(root, data)){
+        return false;
+    }
     root = doAdd(root, data);
+    cout << treeString(root) << endl;
     return true;
 }
 
 bool AVL::remove(int data){
+    if(!checkValue(root, data)){
+        return false;
+    }
     root = doRemove(root, data);
     return true;
 }
