@@ -11,6 +11,6 @@ void checkBalance(const Node* localNode);
 void doClear(Node* localRoot);
 Node * doAdd(Node* localRoot, int value);
 Node* doRemove(Node* localRoot, int value);
-void replaceParent(Node* oldRoot, Node* localRoot);
+Node* replaceParent(Node* oldRoot, Node* localRoot);
 bool checkValue(Node* localRoot, int value);
 string treeString(NodeInterface* node);
