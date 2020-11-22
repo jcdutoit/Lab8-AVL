@@ -22,7 +22,9 @@ bool AVL::remove(int data){
     if(!checkValue(root, data)){
         return false;
     }
+    cout << "Removing " << data << endl;
     root = doRemove(root, data);
+    //cout << treeString(root) << endl;
     return true;
 }
 
