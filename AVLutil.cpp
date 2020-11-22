@@ -91,13 +91,27 @@ Node* rebalance(Node* localNode){
     }
 }
 
-void doClear(Node* localRoot){
+// void doClear(Node* localRoot){
+//     if(localRoot == nullptr){
+//         return;
+//     }
+// 	if(localRoot->leftChild != nullptr){
+//         doClear(localRoot->leftChild);
+//     }
+//     else if(localRoot->rightChild != nullptr){
+//         doClear(localRoot->rightChild);
+//     }
+//     delete localRoot;
+//     return;
+// }
+
+void doClear(Node* &localRoot){
 	if(localRoot == nullptr){
 		return;
 	}
 	else{
-		doClear(localRoot->getLeftChild());
-		doClear(localRoot->getRightChild());
+		doClear(localRoot->leftChild);
+		doClear(localRoot->rightChild);
 		delete localRoot;
 		localRoot = nullptr;
 		return;

@@ -7,7 +7,7 @@
 const int NUM_FILES = 5; // the total number of files to be read from
 // const int NUM_FILES = 1;
 const std::string fileArray[NUM_FILES] = { "file1.txt", "file2.txt", "file3.txt", "file4.txt", "file5.txt" }; // the string array containing the file names
-// const std::string fileArray[NUM_FILES] = {"file2.txt"};
+// const std::string fileArray[NUM_FILES] = {"file4.txt"};
 // This will take a string temp and an AVL object and will execute an instruction from the string
 // no return, but writes the results of the instruction into the ofs
 void parse_instruction(std::string temp, std::ofstream &ofs, AVL* aptr);
