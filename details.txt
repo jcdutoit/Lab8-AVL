@@ -1,141 +1,22 @@
 out_file1.txt
 out_file2.txt
-1:  2 7 						      |	1:  2 6 
-							      >	3:  7 
-1:  2 5 						      |	1:  2 6 
-2:  1 3 						      |	2:  1 3 5 
-0:  1 							      |	0:  4 
-							      >	1:  1 6 
-BST is empty						      |	0:  4 
-							      >	1:  6 
-PrintBST						      <
-BST is empty						      <
-							      <
 out_file3.txt
-0:  8 							      |	0:  1 
-1:  4 16 						      |	1:  20 
-2:  2 6 12 18 						      <
-3:  1 3 5 7 10 14 17 19 				      <
-4:  9 11 13 15 20 					      <
-Remove 8 True						      |	Remove 8 False
-0:  7 							      |	0:  1 
-1:  4 16 						      |	1:  20 
-2:  2 6 12 18 						      <
-3:  1 3 5 10 14 17 19 					      <
-4:  9 11 13 15 20 					      <
-Remove 7 True						      |	Remove 7 False
-0:  6 							      |	0:  1 
-1:  4 16 						      |	1:  20 
-2:  2 5 12 18 						      <
-3:  1 3 10 14 17 19 					      <
-4:  9 11 13 15 20 					      <
-Remove 6 True						      |	Remove 6 False
-0:  5 							      |	0:  1 
-1:  2 16 						      |	1:  20 
-2:  1 4 12 18 						      <
-3:  3 10 14 17 19 					      <
-4:  9 11 13 15 20 					      <
-Remove 5 True						      |	Remove 5 False
-0:  16 							      |	0:  1 
-1:  4 18 						      |	1:  20 
-2:  2 12 17 19 						      <
-3:  1 3 10 14 20 					      <
-4:  9 11 13 15 						      <
-Remove 16 True						      |	Remove 16 False
-0:  15 							      |	0:  1 
-1:  4 18 						      |	1:  20 
-2:  2 12 17 19 						      <
-3:  1 3 10 14 20 					      <
-4:  9 11 13 						      <
-Remove 15 True						      |	Remove 15 False
-0:  14 							      |	0:  1 
-1:  4 18 						      |	1:  20 
-2:  2 12 17 19 						      <
-3:  1 3 10 13 20 					      <
-4:  9 11 						      <
-Remove 14 True						      |	Remove 14 False
-0:  13 							      |	0:  1 
-1:  4 18 						      |	1:  20 
-2:  2 10 17 19 						      <
-3:  1 3 9 12 20 					      <
-4:  11 							      <
-Remove 13 True						      |	Remove 13 False
-0:  12 							      |	0:  1 
-1:  4 18 						      |	1:  20 
-2:  2 10 17 19 						      <
-3:  1 3 9 11 20 					      <
-Remove 12 True						      |	Remove 12 False
-0:  11 							      |	0:  1 
-1:  4 18 						      |	1:  20 
-2:  2 10 17 19 						      <
-3:  1 3 9 20 						      <
-Remove 11 True						      |	Remove 11 False
-0:  10 							      |	0:  1 
-1:  4 18 						      |	1:  20 
-2:  2 9 17 19 						      <
-3:  1 3 20 						      <
-Remove 10 True						      |	Remove 10 False
-0:  9 							      |	0:  1 
-1:  2 18 						      |	1:  20 
-2:  1 4 17 19 						      <
-3:  3 20 						      <
-Remove 9 True						      |	Remove 9 False
-0:  4 							      |	0:  1 
-1:  2 18 						      |	1:  20 
-2:  1 3 17 19 						      <
-3:  20 							      <
-Remove 4 True						      |	Remove 4 False
-0:  3 							      |	0:  1 
-1:  2 18 						      |	1:  20 
-2:  1 17 19 						      <
-3:  20 							      <
-Remove 3 True						      |	Remove 3 False
-0:  18 							      |	0:  1 
-1:  2 19 						      |	1:  20 
-2:  1 17 20 						      <
-Remove 18 True						      |	Remove 18 False
-0:  17 							      |	0:  1 
-1:  2 19 						      |	1:  20 
-2:  1 20 						      <
-Remove 17 True						      |	Remove 17 False
-0:  2 							      |	0:  1 
-1:  1 19 						      |	1:  20 
-2:  20 							      <
-Remove 2 True						      |	Remove 2 False
-0:  19 							      |	0:  1 
-1:  1 20 						      |	1:  20 
-Remove 19 True						      |	Remove 19 False
 out_file4.txt
-0:  2 							      |	0:  1 
-1:  1 3 						      <
-Add 3 False						      |	Add 3 True
-Add 2 False						      |	Add 2 True
-0:  2 							      |	0:  1 
-1:  1 3 						      |	1:  2 
-0:  2 							      |	0:  1 
-1:  1 3 						      |	1:  2 
-Remove 3 True						      |	Remove 3 False
-0:  2 							      |	0:  1 
-1:  1 							      |	1:  2 
-1:  5 12 						      |	1:  1 9 
-2:  3 6 10 14 						      <
-3:  2 4 7 9 11 13 15 					      <
-4:  1 							      <
 Add 1 True						      |	Add 1 False
-Add 2 True						      <
-Add 3 True						      <
-Add 4 True						      <
-Add 5 True						      <
-Add 6 True						      <
-Add 7 True						      <
-Add 8 True						      <
-Add 9 True						      <
-Add 10 True						      <
-Add 11 True						      <
-Add 12 True						      <
-Add 13 True						      <
-Add 14 True						      <
-Add 15 True						      <
+Add 2 True						      |	Add 2 False
+Add 3 True						      |	Add 3 False
+Add 4 True						      |	Add 4 False
+Add 5 True						      |	Add 5 False
+Add 6 True						      |	Add 6 False
+Add 7 True						      |	Add 7 False
+Add 8 True						      |	Add 8 False
+Add 9 True						      |	Add 9 False
+Add 10 True						      |	Add 10 False
+Add 11 True						      |	Add 11 False
+Add 12 True						      |	Add 12 False
+Add 13 True						      |	Add 13 False
+Add 14 True						      |	Add 14 False
+Add 15 True						      |	Add 15 False
 PrintBST						      <
 0:  8 							      <
 1:  4 12 						      <

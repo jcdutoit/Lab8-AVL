@@ -29,9 +29,8 @@ Remove 9 True
 Remove 6 True
 PrintBST
 0:  4 
-1:  2 5 
-2:  1 3 8 
-3:  7 
+1:  2 7 
+2:  1 3 5 8 
 
 Remove 8 True
 Remove 7 True

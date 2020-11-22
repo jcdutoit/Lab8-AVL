@@ -57,8 +57,8 @@ Node* rotateRight(Node* localRoot) {
 
 Node* rebalance(Node* localNode){
     // Left Left Tree
-    //cout << "Rebalancing" << endl;
-    //cout << treeString(localNode) << endl;
+    cout << "Rebalancing" << endl;
+    cout << treeString(localNode) << endl;
     if(getBalance(localNode) < -1 && (getBalance(localNode->getLeftChild()) == -1 || getBalance(localNode->getLeftChild()) == 0)){
         cout << "Left Left tree" << endl;
         localNode = rotateRight(localNode);
@@ -102,33 +102,6 @@ void doClear(Node* localRoot){
 		localRoot = nullptr;
 		return;
 	}
-}
-
-
-void checkBalance(const Node* localNode){
-    // Left Left Tree
-    
-    if(getBalance(localNode) < -1 && (getBalance(localNode->getLeftChild()) == -1 || getBalance(localNode->getLeftChild()) == 0)){
-        cout << "Left Left tree" << endl;
-    }
-    // Left Right Tree
-    
-    else if(getBalance(localNode) < -1 && (getBalance(localNode->getLeftChild()) == 1)){
-        cout << "Left Right tree" << endl;
-        
-    }
-    // Right Right Tree
-    else if(getBalance(localNode) > 1 && (getBalance(localNode->getRightChild()) == 1 || getBalance(localNode->getRightChild()) == 0)){
-        cout << "Right Right tree" << endl;
-    }
-    // Right Left Tree
-    else if(getBalance(localNode) > 1 && (getBalance(localNode->getRightChild()) == -1)){
-        cout << "Right Left tree" << endl;
-    }
-    // We are balanced
-    else{
-        return;
-    }
 }
 
 Node * doAdd(Node* localRoot, int value){
@@ -196,12 +169,21 @@ Node* doRemove(Node* localRoot, int value){
         }
         else{
             localRoot->leftChild = replaceParent(localRoot, localRoot->leftChild);
+            localRoot->height = getMaxHeight(localRoot);
+            localRoot = rebalance(localRoot);
             return localRoot;
         }
 
         delete temp;
+        if(localRoot == nullptr){
+            return localRoot;
+        }
+        localRoot->height = getMaxHeight(localRoot);
+        localRoot = rebalance(localRoot);
         return localRoot;
     }
+    
+    
     //     Node *temp = (localRoot->leftChild == nullptr) ?
     //                  localRoot->rightChild :  
     //                  localRoot->leftChild; 
@@ -230,11 +212,11 @@ Node* doRemove(Node* localRoot, int value){
 Node* replaceParent(Node* oldRoot, Node* localRoot){
     cout << "In replaceParent" << endl;
 	if(localRoot->rightChild != nullptr){
-        cout << "Checking right child with value" << localRoot->data;
+        cout << "Checking right child with value" << localRoot->data << endl;
 		localRoot = replaceParent(oldRoot, localRoot->rightChild);
 	}
 	else {
-        cout << "Found rightmost value " << localRoot->data;
+        cout << "Found rightmost value " << localRoot->data << endl;
 		oldRoot->data = localRoot->data;
 		localRoot = doRemove(oldRoot->leftChild, oldRoot->data);
 	}
