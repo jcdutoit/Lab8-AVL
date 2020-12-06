@@ -14,7 +14,7 @@ bool AVL::add(int data){
         return false;
     }
     root = doAdd(root, data);
-    cout << treeString(root) << endl;
+    //cout << treeString(root) << endl;
     return true;
 }
 
@@ -22,7 +22,7 @@ bool AVL::remove(int data){
     if(!checkValue(root, data)){
         return false;
     }
-    cout << "Removing " << data << endl;
+    //cout << "Removing " << data << endl;
     root = doRemove(root, data);
     //cout << treeString(root) << endl;
     return true;

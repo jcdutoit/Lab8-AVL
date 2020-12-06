@@ -3,9 +3,9 @@
 #include <queue>
 #include <sstream>
 
-int getNumHeight(const Node* localNode){
+int getNumHeight(Node* localNode){
     if(localNode == nullptr){
-        //cout << "TRYING TO TAKE HEIGHT OF NULL PTR" << endl;
+        ////cout << "TRYING TO TAKE HEIGHT OF NULL PTR" << endl;
         return 0;
     }
     return localNode->getHeight();
@@ -30,7 +30,7 @@ int getBalance(const Node* localNode){
 }
 
 Node* rotateLeft(Node* localRoot) {
-    // cout << "Rotating left on " << localRoot->getData()  << endl;
+    // //cout << "Rotating left on " << localRoot->getData()  << endl;
     Node* temp = localRoot->getRightChild();
     localRoot->setRight(temp->getLeftChild()); 
     temp->setLeft(localRoot);
@@ -38,13 +38,13 @@ Node* rotateLeft(Node* localRoot) {
     
     localRoot->getLeftChild()->setHeight(getMaxHeight(localRoot->getLeftChild()));
     localRoot->setHeight(getMaxHeight(localRoot));
-    // cout << "Finished rotate" << endl;
-    //cout << treeString(localRoot) << endl;
+    // //cout << "Finished rotate" << endl;
+    ////cout << treeString(localRoot) << endl;
     return localRoot;
 }
 
 Node* rotateRight(Node* localRoot) {
-    cout << "Rotating right on " << localRoot->getData() << endl;
+    //cout << "Rotating right on " << localRoot->getData() << endl;
     Node* temp = localRoot->getLeftChild();
     localRoot->setLeft(temp->getRightChild());
     temp->setRight(localRoot);
@@ -57,30 +57,30 @@ Node* rotateRight(Node* localRoot) {
 
 Node* rebalance(Node* localNode){
     // Left Left Tree
-    cout << "Rebalancing" << endl;
-    cout << treeString(localNode) << endl;
+    //cout << "Rebalancing" << endl;
+    //cout << treeString(localNode) << endl;
     if(getBalance(localNode) < -1 && (getBalance(localNode->getLeftChild()) == -1 || getBalance(localNode->getLeftChild()) == 0)){
-        cout << "Left Left tree" << endl;
+        //cout << "Left Left tree" << endl;
         localNode = rotateRight(localNode);
         return localNode;
     }
     // Left Right Tree
     
     else if(getBalance(localNode) < -1 && (getBalance(localNode->getLeftChild()) == 1)){ // || getBalance(localNode->rightChild) == 0)){
-        cout << "Left Right tree" << endl;
+        //cout << "Left Right tree" << endl;
         localNode->setLeft(rotateLeft(localNode->getLeftChild()));
         localNode = rotateRight(localNode);
         return localNode;
     }
     // Right Right Tree
     else if(getBalance(localNode) > 1 && (getBalance(localNode->getRightChild()) == 1 || getBalance(localNode->getRightChild()) == 0)){
-        cout << "Right Right tree" << endl;
+        //cout << "Right Right tree" << endl;
         localNode = rotateLeft(localNode);
         return localNode;
     }
     // Right Left Tree
     else if(getBalance(localNode) > 1 && (getBalance(localNode->getRightChild()) == -1)){ //|| getBalance(localNode->getLeftChild()) == 0)){
-        cout << "Right Left tree" << endl;
+        //cout << "Right Left tree" << endl;
         localNode->setRight(rotateRight(localNode->getRightChild()));
         localNode = rotateLeft(localNode);
         return localNode;
@@ -224,13 +224,13 @@ Node* doRemove(Node* localRoot, int value){
 }
 
 Node* replaceParent(Node* oldRoot, Node* localRoot){
-    cout << "In replaceParent" << endl;
+    //cout << "In replaceParent" << endl;
 	if(localRoot->rightChild != nullptr){
-        cout << "Checking right child with value" << localRoot->data << endl;
+        //cout << "Checking right child with value" << localRoot->data << endl;
 		localRoot = replaceParent(oldRoot, localRoot->rightChild);
 	}
 	else {
-        cout << "Found rightmost value " << localRoot->data << endl;
+        //cout << "Found rightmost value " << localRoot->data << endl;
 		oldRoot->data = localRoot->data;
 		localRoot = doRemove(oldRoot->leftChild, oldRoot->data);
 	}
@@ -253,7 +253,7 @@ bool checkValue(Node* localRoot, int value){
 }
 
 string treeString(NodeInterface* node) {
-    //cout << "Printing tree: " << endl;
+    ////cout << "Printing tree: " << endl;
     queue<NodeInterface*> readQ; // used to read in the levels of the tree, contains Node*
     stringstream nodeReader_ss; // used to store the values of the nodes and the level-order sequence
     int depth = 0; // the depth of a node on the tree
@@ -265,7 +265,7 @@ string treeString(NodeInterface* node) {
     readQ.push(node); // push the root node of the tree into the queue
 
     while (!readQ.empty()) { // as long as the queue has a remaining node:
-        //cout << "Printing nodes" << endl;
+        ////cout << "Printing nodes" << endl;
         int i = readQ.size(); // store the number of nodes on this level of the tree
         nodeReader_ss << depth << ":  ";
         for (; i > 0; i--) { // for each node on this level,
